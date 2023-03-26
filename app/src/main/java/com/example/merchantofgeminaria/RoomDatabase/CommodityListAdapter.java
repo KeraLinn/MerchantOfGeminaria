@@ -3,6 +3,7 @@ package com.example.merchantofgeminaria.RoomDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,24 +33,36 @@ public class CommodityListAdapter extends RecyclerView.Adapter<CommodityListAdap
     }
 
     @Override
-    public CommodityListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(fragment_main, parent, false);
-        RecyclerView.ViewHolder myViewHolder = new RecyclerView.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(commodityItemLayout, parent,
+                false);
+        ViewHolder myViewHolder = new ViewHolder(view);
         return myViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull CommodityListAdapter.ViewHolder holder,
                                  final int position) {
-        TextView item = holder.item;
-        item.setText(commodityItemList.get(commodityItemList).getItemName());
+        holder.commodityName.setText(commodityItemList.get(position).getItemName());
+        holder.commodityPrice.setText(commodityItemList.get(position).getItemPrice());
+        holder.commodityLocation.setText(commodityItemList.get(position).getCityLocation());
+        holder.commodityImage.setImageResource(commodityItemList.get(position).getItemImage());
+
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView item;
-        RecyclerView.ViewHolder(View itemView){
+        TextView commodityName;
+        TextView commodityLocation;
+        TextView commodityPrice;
+        ImageView commodityImage;
+        ImageView coinImage;
+        ViewHolder(View itemView){
             super(itemView);
-            item = itemView.findViewById(R.id.fragment_main);
+            commodityName = itemView.findViewById(R.id.commodityName);
+            commodityLocation = itemView.findViewById(R.id.commodityLocation);
+            commodityPrice = itemView.findViewById(R.id.commodityPrice);
+            commodityImage = itemView.findViewById(R.id.commodityImage);
+            coinImage = itemView.findViewById(R.id.coin_image);
         }
     }
 

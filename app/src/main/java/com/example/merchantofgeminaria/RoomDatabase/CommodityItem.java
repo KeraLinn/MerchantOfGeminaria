@@ -16,7 +16,11 @@ public class CommodityItem {
     private int itemPrice;
     @ColumnInfo(name = "City Location")
     private String cityLocation;
-    //tbd if needed /*@ColumnInfo(name = "Item Image") private int itemImage;*/
+
+
+
+    @ColumnInfo(name = "Item Image")
+    private int itemImage;
 
     public CommodityItem(int itemID, String itemName, int itemPrice, String cityLocation) {
         this.itemID = itemID;
@@ -38,6 +42,14 @@ public class CommodityItem {
 
     public String getCityLocation() {
         return this.cityLocation;
+    }
+
+    public int getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(int itemImage) {
+        this.itemImage = itemImage;
     }
 
     public void setItemID(int itemID) {
