@@ -10,17 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.merchantofgeminaria.R;
+import com.example.merchantofgeminaria.ReviewDatabase;
 
 import java.util.List;
 
 public class CommodityListAdapter extends RecyclerView.Adapter<CommodityListAdapter.ViewHolder> {
 
-    private int commodityItemLayout;
+//    private final int commodityItemLayout;
     private List<CommodityItem> commodityItemList;
-
-    public CommodityListAdapter(int layoutID){
-        commodityItemLayout = layoutID;
-    }
+/*
+    public CommodityListAdapter(ReviewDatabase layoutID){
+        commodityItemLayout = layoutID.;
+    }*/
 
     public void setCommodityItemList(List<CommodityItem> commodityItemList) {
         this.commodityItemList = commodityItemList;
@@ -34,7 +35,7 @@ public class CommodityListAdapter extends RecyclerView.Adapter<CommodityListAdap
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(commodityItemLayout, parent,
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.db_recyclerview_row, parent,
                 false);
         ViewHolder myViewHolder = new ViewHolder(view);
         return myViewHolder;

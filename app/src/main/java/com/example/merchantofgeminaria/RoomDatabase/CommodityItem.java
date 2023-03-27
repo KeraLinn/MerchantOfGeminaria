@@ -2,23 +2,19 @@ package com.example.merchantofgeminaria.RoomDatabase;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "ItemsTable")
 public class CommodityItem {
 
     @PrimaryKey(autoGenerate = true)
-    private int itemID;
+    private final int itemID;
     @ColumnInfo(name = "Name")
-    private String itemName;
+    private final String itemName;
     @ColumnInfo(name = "Price")
-    private int itemPrice;
+    private final int itemPrice;
     @ColumnInfo(name = "City Location")
-    private String cityLocation;
-
-
-
+    private final String cityLocation;
     @ColumnInfo(name = "Item Image")
     private int itemImage;
 
@@ -50,22 +46,6 @@ public class CommodityItem {
 
     public void setItemImage(int itemImage) {
         this.itemImage = itemImage;
-    }
-
-    public void setItemID(int itemID) {
-        this.itemID = itemID;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public void setItemPrice(int itemPrice) {
-        this.itemPrice = itemPrice;
-    }
-
-    public void setCityLocation(String cityLocation) {
-        this.cityLocation = cityLocation;
     }
 
 }
